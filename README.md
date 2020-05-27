@@ -1,8 +1,7 @@
 # Bit_Boolean
 Easy, way to store boolean values in addressable bits, instead of using whole bytes - especially ueful for Arduino 
 
-Function name is bb()
-bb() stands for Boolean Bit
+Function name is bb(), stands for Bit Boolean
 
 Advantages:  
      Saves 8x RAM: for boolean storage (except in last byte of array, where some bits may be unused) 
@@ -33,12 +32,11 @@ Usage Overview:
       bitNum = 7; refers to the last (8th)  bit of the first byte   
       bitNum = 8; refers to the first bit of the second byte 
 
- sample usage: 
-
-      bool a = bb(boolStore,11);    //sets the value of boolean 'a' to the value of the 3rd bit of the second byte of boolStore[];
-           int i=924;
-      bb(boolStore,i,true)          //sets the 924th bit (5th bit of the 116th byte) of the boolStore array to true 
-      bb(boolStore,5,bb(boolRep,0)) //set the value of the 6th bit of boolStore, to the value of the very first (0th) bit of boolRep[]
+sample usage: 
+bool a = bb(boolStore,11);    //sets the value of boolean 'a' to the value of the 3rd bit of the second byte of boolStore[];
+ int i=924;
+bb(boolStore,i,true)          //sets the 924th bit (5th bit of the 116th byte) of the boolStore array to true 
+bb(boolStore,5,bb(boolRep,0)) //set the value of the 6th bit of boolStore, to the value of the very first bit of boolRep[]
 
 Generally knowing which bit in which byte is being used unnecessary, just know that for each extra array byte 8 more addressable bits by the bitNum parameter.
 
@@ -50,16 +48,16 @@ Use case 1: use the bitNum just like a boolean array: use bitNum as the array in
          byte a[125]       // byte array of 1000 bits (allowng to store 1000 addressable bits, and save 875 bytes of RAM)
          bool b[1000]      // uses 1000 bytes to store boolean array 
    
- use case 2: use byte array to store boolean data in bits instaed of individul boolean variables 
+Use case 2: use byte array to store boolean data in bits instaed of individul boolean variables 
           use constants for readability  
  
-  1)    define a byte[] big enough to hold all booleans (can be expanded later a byte at a time, as needs grow)
+  1)    define a byte[] with enough bits to hold all booleans (can be expanded later a byte at a time, as needs grow)
 
  example :
  boolean      GlobBoolAray[1];   // create a 1 element byte array to store up to 8 boolean values
                        
   2)    instead of defining individual boolean variables, define constants, to represent bit positions in 
-            the byte array, (using the names that would have been used by the boolean variables) 
+            the byte array, (using the names that would have been assigned to the boolean variables) 
             (use const or #define constants use no RAM, they are replaced by the compiler like #define)
 
  //Example constants to use as array indexes for the binNum parameter: 
