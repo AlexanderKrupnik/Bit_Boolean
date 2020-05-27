@@ -13,7 +13,7 @@ Advantages:  
 Disadvantage:
      Speed of execution, takes about x5 longer vs standard boolean variables (due to bit manipulation overhead) still very fast  
 
-Syntax: bb(arrayName,unsigned int bitNum [,bool value])  
+Syntax: ~bb(arrayName,unsigned int bitNum [,bool value]) ~ 
         arrayName - pointer to byte array declared for boolean bit storage (the array name is the pointer)   
         bitNum    - the bit-number in the array being addressed  
                  ( e.g.  5 is the 6th bit, of the first byte, 924 - is 5th bit of the 116th byte)
